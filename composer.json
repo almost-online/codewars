@@ -1,0 +1,17 @@
+{
+  "name": "star/codewars",
+  "description": "Codewars example",
+  "type": "train project",
+  "require": {
+    "phpunit/phpunit": "^6.4"
+  },
+  "license": "BCD",
+  "authors": [
+    {
+      "name": "star",
+      "email": "almost@online.com.ua"
+    }
+  ],
+  "include-path": ["code/src/"],
+  "minimum-stability": "dev"
+}
