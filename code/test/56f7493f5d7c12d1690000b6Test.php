@@ -24,13 +24,55 @@ class MeanTest extends TestCase
         $this->assertEquals([1.0, "aaddgquvyy"], mean($lst));
     }
 
-    public function testRandom()
+    /**
+     * @dataProvider randomIntData
+     * @dataProvider randomStringData
+     */
+    public function testRandom($lst, $expect)
     {
-        $lst = [1, 2, 3, 4];
-        $this->assertEquals([1, ""], mean($lst));
-        $lst = [0, 0, 0, 0, 0, 0, 0, 0, 1, 2, 3, 4, 0, 0, 0, 0, 0, 0, 0, 0];
-        $this->assertEquals([1, ""], mean($lst));
-        $lst = [10, '9', '3', 6, 3, 8, 1, '0', 4, 9, '5', '5', 2, 7, '4', '8', '0', '0', '8', 5,];
-        $this->assertEquals([9.6999999999999993, ""], mean($lst));
+        $this->assertEquals($expect, mean($lst));
+    }
+
+    public function randomIntData()
+    {
+        $data = [];
+        for ($i = 0; $i < 10; $i++) {
+            $randomArray = $this->getRandomArray(20);
+            $data[] = [$randomArray, [array_sum($randomArray) / 10, '']];
+        }
+
+        return $data;
+    }
+
+    public function randomStringData()
+    {
+        $data = [];
+        for ($i = 0; $i < 10; $i++) {
+            $randomArray = $this->getRandomArray(20, true);
+            $data[] = [$randomArray, [0, implode('', $randomArray)]];
+        }
+
+        return $data;
+    }
+
+    private function getRandomArray($num, $useString = false)
+    {
+        $res = [];
+        for ($i = 0; $i < $num; $i++) {
+
+            $rand = rand(0, 32);
+
+            if ($useString) {
+                $res[] = chr($rand);
+            } else {
+                if (rand() > 0.5) {
+                    $res[] = $rand / 10;
+                } else {
+                    $res[] = (string)$rand;
+                }
+            }
+        }
+
+        return $res;
     }
 }
