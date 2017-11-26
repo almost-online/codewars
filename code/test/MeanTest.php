@@ -2,7 +2,7 @@
 
 use PHPUnit\Framework\TestCase;
 
-include '56f7493f5d7c12d1690000b6.php';
+include 'Mean.php';
 
 class MeanTest extends TestCase
 {

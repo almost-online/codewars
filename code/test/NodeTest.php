@@ -2,9 +2,9 @@
 
 use PHPUnit\Framework\TestCase;
 
-include '55be95786abade3c71000079.php';
+include 'Node.php';
 
-class be95786abade3c71000079Test extends TestCase
+class NodeTest extends TestCase
 {
     public function testPush()
     {
