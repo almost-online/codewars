@@ -13,9 +13,8 @@ function tankvol($h, $d, $vt)
        return $vt;
     }
 
-    $l = 4 * $vt/(M_PI * $d * $d);
     $a = 2 * acos(1 - 2 * $h / $d );
 
-    return floor($l * ($d * $d / 8) * ($a - sin($a)));
+    return floor($vt / (2 * M_PI) * ($a - sin($a)));
 }
 
