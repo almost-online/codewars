@@ -1,8 +1,11 @@
 <?php
 /**
  * @link https://www.codewars.com/kata/56f7493f5d7c12d1690000b6/solutions/php
+ *
+ * @param array $a
+ *
+ * @return array
  */
-
 function mean(array $a): array
 {
     $ints = array_filter($a, function ($i) {
