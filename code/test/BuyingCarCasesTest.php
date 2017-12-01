@@ -9,8 +9,7 @@ class BuyingCarCases extends TestCase
 {
     private function revTest($n, $expected)
     {
-        $this->assertEquals($expected, removeNb($n));
-        $this->assertEquals($expected, removeNb1($n));
+        $this->assertEquals($expected, $j = removeNb($n));
     }
 
     public function testBasics()
@@ -20,5 +19,6 @@ class BuyingCarCases extends TestCase
         $this->revTest(17, [[10, 13], [13, 10]]);
         $this->revTest(101, [[55, 91], [91, 55]]);
         $this->revTest(102, [[70, 73], [73, 70]]);
+        $this->revTest(198014950, [[99017425, 197995050], [197995050, 99017425]]);
     }
 }

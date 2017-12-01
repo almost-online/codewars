@@ -5,36 +5,22 @@
 
 function removeNb($n)
 {
-    $range = range(1, $n);
-    $sum = array_sum($range);
+    $sum = ($n + 1) * $n / 2;
     $res = [];
+    $min = 1;
 
-    while ($i = array_shift($range)) {
-        foreach ($range as $j) {
-            if (($i * $j) + $i + $j == $sum) {
-                $res[] = [$i, $j];
-                $res[] = [$j, $i];
+    for ($i = $n; $i > $min; $i--) {
+        if (($sum - $i) % ($i + 1) == 0) {
+            $j = ($sum - $i) / ($i + 1);
+            $min = max($min, $j);
+            if (($j <= $n)) {
+                $res[(int)$j] = [(int)$j, (int)$i];
+                $res[(int)$i] = [(int)$i, (int)$j];
             }
         }
     }
 
-    return $res;
-}
+    ksort($res);
 
-
-function removeNb1($n)
-{
-    $sum = array_sum(range(1, $n));
-    $res = [];
-
-    for ($i = 1; $i < $n; $i++) {
-        for ($j = $i + 1; $j <= $n; $j++) {
-            if (($i * $j) + $i + $j == $sum) {
-                $res[] = [$i, $j];
-                $res[] = [$j, $i];
-            }
-        }
-    }
-
-    return $res;
+    return array_values($res);
 }
