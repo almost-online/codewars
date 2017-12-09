@@ -1,7 +1,7 @@
 <?php
 use PHPUnit\Framework\TestCase;
 
-include 'Interpreter.php';
+include 'interpreter.php';
 
 
 class InterpreterTest extends TestCase {
