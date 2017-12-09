@@ -13,5 +13,6 @@ class ValidBracesTestCases extends TestCase
         $this->assertEquals(true, validBraces("[()]"));
         $this->assertEquals(true, validBraces("[()][()]"));
         $this->assertEquals(false, validBraces("({})[({})]{}({}){}({)}(({{[[]]}}))({{[[]]}}"));
+        $this->assertEquals(false, validBraces("({})[({})]()[()][](})(({{[[]]}}))(({{[]}}))(({{}}))(({}))(())(){}({})[]())(}{][())({}}{()][][)(}{][(((({{}}]]))}])"));
     }
 }
